@@ -1,0 +1,17 @@
+@model hobbyHub.Models.loginUser
+<form asp-action="loginUser" class="form col bg-dark bg-gradient text-white border rounded m-2">
+    <p class="display-2 text-center">Login</p>
+    <span class="text-danger text-center d-grid" asp-validation-for="loginUsername"></span>
+    <div class="form-floating m-3 text-black">
+        <input type="text" class="form-control" placeholder="com" required asp-for="loginUsername">
+        <label for="loginUsername">Username</label>
+    </div>
+    <span class="text-danger text-center d-grid" asp-validation-for="loginPass"></span>
+    <div class="form-floating m-3 text-black">
+        <input type="password" class="form-control" placeholder="pass" required asp-for="loginPass" id="loginPassw">
+        <label for="loginPass">Password</label>
+    </div>
+    <div class="d-grid m-3">
+        <input type="submit" value="Login" class="btn-secondary btn">
+    </div>
+</form>

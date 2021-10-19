@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "New Hobby";
+}
+@model hobbyHub.Models.Hobby
+
+<p class="display-3">Create a Hobby</p>
+<div class="container">
+    <form asp-action="submitHobby" class="form">
+        <span class="text-danger text-center d-grid" asp-validation-for="name"></span>
+        <div class="form-floating mb-3">
+            <input type="text" asp-for="name" class="form-control" placeholder="john">
+            <label for="name">Name</label>
+        </div>
+        <span class="text-danger text-center d-grid" asp-validation-for="description"></span>
+        <div class="form-floating mb-3">
+            <textarea id="" cols="30" rows="10" style="height: 150px;" class="form-control" placeholder="desc" asp-for="description"></textarea>
+            <label for="description">Description</label>
+        </div>
+        <div class="d-grid">
+            <input type="submit" value="Create" class="btn btn-outline-dark">
+        </div>
+    </form>
+</div>

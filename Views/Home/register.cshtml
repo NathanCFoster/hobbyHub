@@ -1,0 +1,33 @@
+@model hobbyHub.Models.User
+
+<form asp-action="submitUser" class="col bg-dark bg-gradient text-white border rounded m-2">
+    <p class="display-3 text-center">Register</p>
+    <span class="text-danger text-center d-grid" asp-validation-for="firstName"></span>
+    <div class="form-floating m-3 text-black">
+        <input type="text" class="form-control" placeholder="John" required asp-for="firstName">
+        <label for="firstName">First Name</label>
+    </div>
+    <span class="text-danger text-center d-grid" asp-validation-for="firstName"></span>
+    <div class="form-floating m-3 text-black">
+        <input type="text" class="form-control" placeholder="Doe" required asp-for="lastName">
+        <label for="lastName">Last Name</label>
+    </div>
+    <span class="text-danger text-center d-grid" asp-validation-for="username"></span>
+    <div class="form-floating m-3 text-black">
+        <input type="text" class="form-control" placeholder="com" required asp-for="username">
+        <label for="username">Username</label>
+    </div>
+    <span class="text-danger text-center d-grid" asp-validation-for="password"></span>
+    <div class="form-floating m-3 text-black">
+        <input type="password" class="form-control" placeholder="pass" required asp-for="password" id="password">
+        <label for="password">Password</label>
+    </div>
+    <span class="text-danger text-center d-grid" asp-validation-for="confirm"></span>
+    <div class="form-floating m-3 text-black">
+        <input type="password" class="form-control" placeholder="confirm" required asp-for="confirm">
+        <label for="confirmedPass">Confirm Password</label>
+    </div>
+    <div class="d-grid m-3">
+        <input type="submit" value="Register" class="btn btn-secondary">
+    </div>
+</form>

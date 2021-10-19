@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Hobbies";
+}
+
+<div class="row">
+    <div class="col m-3">
+        <table class="table-dark table table-striped">
+            <thead>
+                <tr>
+                    <th>Hobby</th>
+                    <th>Enthusiasts</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (Hobby item in ViewBag.Hobbies)
+                {
+                    <tr>
+                        <th><a href="/view/@item.id" class="nav-link">@item.name</a></th>
+                        <th>@item.User_.Count</th>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col m-3 border border-dark rounded">
+        <dt class="col-sm-9">Top Novice</dt>
+        @if (ViewBag.topNovice != null)
+        {
+            foreach (Hobby item in ViewBag.topNovice)
+            {
+                <dd class="ms-3">@item.name</dd>
+            }
+        } else
+        {
+            <dd class="ms-3">None</dd>
+        }
+        <dt class="col-sm-9">Top Intermediate</dt>
+        @if (ViewBag.topIntermediate != null)
+        {
+            foreach (Hobby item in ViewBag.topIntermediate)
+            {
+                <dd class="ms-3">@item.name</dd>
+            }
+        } else
+        {
+            <dd class="ms-3">None</dd>
+        }
+        <dt class="col-sm-9">Top Expert</dt>
+        @if (ViewBag.topExpert != null)
+        {
+            foreach (Hobby item in ViewBag.topExpert)
+            {
+                <dd class="ms-3">@item.name</dd>
+            }
+        } else
+        {
+            <dd class="ms-3">None</dd>
+        }
+    </div>
+</div>
+
+
+<a asp-action="newHobby" class="btn btn-outline-dark">Add New Hobby</a>

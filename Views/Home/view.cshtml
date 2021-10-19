@@ -1,0 +1,42 @@
+@model hobbyHub.Models.Hobby
+@{
+    ViewData["Title"] = Model.name;
+    bool isHobby = false;
+}
+
+<p class="display-2">@Model.name</p>
+<div class="container">
+    <dt class="col-sm-3">Description</dt>
+    <dd class="col-sm-9 ms-3">@Model.description</dd>
+    <div class="d-flex justify-content-between">
+        <div>
+            <dt class="col-sm-3">Enthusiasts</dt>
+            @foreach (association item in Model.User_)
+            {
+                @if (item.User_id == ViewBag.user.id)
+                {
+                    { isHobby = true; }
+                }
+                <p class="ms-3">@item.User.username is a @item.level</p>
+            }
+        </div>
+        <div>
+
+            @if (!isHobby)
+            {
+                <form action="/add/@Model.id" method="post" class="form">
+                    <p>Become an Enthusiast!</p>
+                    <select name="level" id="" class="form-select mb-3">
+                        <option value="Novice">Novice</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                    <div class="d-grid mb-3">
+                        <input type="submit" class="btn btn-outline-dark" value="Add to hobbies">
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+
+</div>
